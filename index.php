@@ -39,6 +39,9 @@
                         case "salvar":
                             include("salvar-cliente.php");
                         break;
+                        case "editar":
+                            include("editar-cliente.php");
+                        break;
                         default:
                             print "Bem Vindo!";
                     }
