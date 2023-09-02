@@ -1,4 +1,6 @@
-
+<?php
+include("config.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,8 +15,8 @@
         <div class="row">
             <div class="col mt-5">
                 <h1>Cadastro</h1>
-                <form action="?page=contador" method="POST" >
-                    <input type="hidden" name="cadastro" value="cadastrar">
+                <form action="contador" method="POST" >
+                    <input type="hidden" name="acao" value="cadastrar">
                     <div class="mb-3">
                         <label for="">Nome da Empresa</label>
                         <input type="text" name="nome_empresa" class="form-control">

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,18 +18,28 @@
                 <div class="card">
                     <div class="card-body ">
                         <form action="login.php" method="POST">
-                        <div class="mb-3">
-                            <label for="">Usuário</label>
-                            <input type="email" name="email" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="">Senha</label>
-                            <input type="password" name="senha" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                            <a href="cadastro-contador.php">Novo Cadastro</a>
-                        </div>
+                            <?php
+                            if(isset($_SESSION['nao_autenticado'])):
+                            ?>
+                            <div class="bg-danger border rounded m-2 p-2 text-white text-center">
+                                Usuário e/ou senha inválidos
+                            </div>
+                            <?php
+                            endif;
+                            unset($_SESSION['nao_autenticado']);
+                            ?>
+                            <div class="mb-3">
+                                <label for="">Email do usuário</label>
+                                <input type="email" name="email" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Senha</label>
+                                <input type="password" name="senha" class="form-control">
+                            </div>
+                            <div class="mb-3 d-flex justify-content-between">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                <button class="btn btn-primary"><a href="cadastro-contador.php" class="text-white">Novo Cadastro</a></button>
+                            </div>
                         </form>
                     </div>
                 </div>

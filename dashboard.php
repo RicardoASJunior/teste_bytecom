@@ -1,8 +1,5 @@
 <?php
-    session_start();
-    if(empty($_SESSION)){
-        print "<script>location.href='index.php';</script>";
-    }
+    include('verifica-login.php');
 ?>
 
 <!DOCTYPE html>
@@ -16,14 +13,19 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="?page=listar">Home</a>
+        <a class="navbar-brand" href="?page_cliente=listar_cliente">Clientes</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="?page=novo">Cadastro Cliente</a>
+            <a class="nav-link active" aria-current="page_cliente" href="?page_cliente=novo_cliente">Cadastro Cliente</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="" href="logout.php">Sair</a>
             </li>
         </ul>
         </div>
@@ -35,22 +37,37 @@
             <div class="col mt-5">
                 <?php
                 include("config.php");
-                    switch(@$_REQUEST["page"]){
-                        case "listar":
+                    switch(@$_REQUEST["page_cliente"]){
+                        case "listar_cliente":
                             include("listar-usuario.php");
                         break;
-                        case "novo":
-                            include("cadastro-cliente.php");
+                        case "novo_cliente":
+                             include("cadastro-cliente.php");
                         break;
-                        case "salvar":
+                        case "salvar_cliente":
                             include("salvar-cliente.php");
                         break;
-                        case "editar":
+                        case "editar_cliente":
                             include("editar-cliente.php");
                         break;
                         default:
                             print "Bem Vindo!";
                     }
+                    // switch(@$_REQUEST["page_contador"]){
+                    //     case "listar_cliente":
+                    //         include("listar-usuario.php");
+                    //     break;
+                    //     case "novo_cliente":
+                    //         include("cadastro-cliente.php");
+                    //     break;
+                    //     case "salvar_cliente":
+                    //         include("salvar-cliente.php");
+                    //     break;
+                    //     case "editar_cliente":
+                    //         include("editar-cliente.php");
+                    //     break;
+                        
+                    // }
                 ?>
 
             </div>

@@ -1,5 +1,6 @@
 <?php
-    switch ($_REQUEST["cadastro"]){
+include('config.php');
+    switch ($_REQUEST["acao"]){
         case "cadastrar":
             $nome_empresa = $_POST["nome_empresa"];
             $data_fundacao_empresa = $_POST["data_fundacao_empresa"];
@@ -9,16 +10,27 @@
             $email = $_POST["email"];
             $Telefone_Contador = $_POST["Telefone_Contador"];
             $senha = $_POST["senha"];
-            $sql = "INSERT INTO contador (nome_empresa,data_fundacao_empresa, Telefone_empresa,Nome_contador, data_aniversario_contador, email, Telefone_Contador,senha ) VALUES ('{$nome_empresa}','{$data_fundacao_empresa}','{$Telefone_empresa}','{$Nome_contador}','{$data_aniversario_contador}','{$email}','{$Telefone_Contador}','{$senha}')";
+            $sql = "INSERT INTO contador (nome_empresa,
+                                        data_fundacao_empresa, 
+                                        Telefone_empresa,
+                                        Nome_contador, 
+                                        data_aniversario_contador, 
+                                        email, 
+                                        Telefone_Contador,senha ) 
+                                        VALUES ('{$nome_empresa}',
+                                        '{$data_fundacao_empresa}',
+                                        '{$Telefone_empresa}',
+                                        '{$Nome_contador}',
+                                        '{$data_aniversario_contador}',
+                                        '{$email}','{$Telefone_Contador}'
+                                        ,'{$senha}')";
 
             $res = $conn->query($sql);
 
             if($res==true){
-                print "<script>alert('Cadastrado com sucesso!');</script>";
-                print "<script>location.href='dashbord.php';</script>";   
+                print "<script>alert('Cadastrado com sucesso!');</script>";    
             }else{
                 print "<script>alert('Não foi possível cadastrar.');</script>";
-                print "<script>location.href='dashbord.php';</script>";   
             }
         break;
         // case "editar":

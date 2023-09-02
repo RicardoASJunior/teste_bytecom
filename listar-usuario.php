@@ -1,4 +1,4 @@
-<h1>Lista de Clienetes</h1>
+<h1>Lista de Clientes</h1>
 <?php
     $sql = "SELECT * FROM cliente";
 
@@ -29,10 +29,10 @@
             print "<td>".$row->data_aniversario_contato."</td>";
             print "<td>".$row->email."</td>";
             print "<td>".$row->Telefone_Contador."</td>";
-            print "<td><button onclick=\"location.href='?page=editar&id=".$row->id."'\" class='btn btn-success'>
+            print "<td><button onclick=\"location.href='?page_cliente=editar_cliente&id=".$row->id."'\" class='btn btn-success'>
                             Editar
                         </button>
-                        <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar&acao=excluir&id=".$row->id."';}else{false;}\" class='btn btn-danger'>
+                        <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page_cliente=salvar_cliente&acao=excluir_cliente&id=".$row->id."';}else{false;}\" class='btn btn-danger'>
                             Excluir
                         </button>
                     </td>";

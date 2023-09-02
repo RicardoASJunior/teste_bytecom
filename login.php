@@ -1,29 +1,27 @@
 <?php
-    session_start();
-    
-    
-    if(empty($_POST) or (empty($_POST["email"]) or (empty($_POST["senha"])))){
-        print "<script>location.href='index.php';</script>";
-    }
+session_start();
+include('config.php');
+ 
+if(empty($_POST['email']) || empty($_POST['senha'])) {
+	header('Location: index.php');
+	exit();
+}
+ 
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+$senha = mysqli_real_escape_string($conn, $_POST['senha']);
+ 
+$query = "select * from contador where email = '{$email}' and senha = '{$senha}'";
 
-    include('config.php');
-
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-
-    $sql = "SELECT * FROM contador
-    WHERE email = '($email)'
-    AND senha ='($senha)'";
-
-    $res = $conn->query($sql) or die($conn->error);
-
-    $row = $res->fetch_object();
-
-    if($res->num_rows > 0){
-        $_SESSION["email"] = $email;
-        $_SESSION["Nome_contador"] = $row->Nome_contador;
-        print "<script>location.href='dashboard.php';</script>";
-    }else{
-        print "<script>alert('Usuario e/ou senha incorreto');</script>";
-        print "<script>location.href='index.php';</script>";
-    }
+$result = mysqli_query($conn, $query);
+ 
+$row = mysqli_num_rows($result);
+ 
+if($row == 1) {
+	$_SESSION['email'] = $email;
+	header('Location: dashboard.php');
+	exit();
+} else {
+	$_SESSION['nao_autenticado'] = true;
+	header('Location: index.php');
+	exit();
+}

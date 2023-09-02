@@ -1,6 +1,6 @@
 <?php
     switch ($_REQUEST["acao"]){
-        case "cadastrar":
+        case "cadastrar_cliente":
             $nome_empresa = $_POST["nome_empresa"];
             $data_fundacao_empresa = $_POST["data_fundacao_empresa"];
             $Telefone_empresa = $_POST["Telefone_empresa"];
@@ -9,19 +9,31 @@
             $email = $_POST["email"];
             $Telefone_Contador = $_POST["Telefone_Contador"];
 
-            $sql = "INSERT INTO cliente (nome_empresa,data_fundacao_empresa, Telefone_empresa,Nome_contato, data_aniversario_contato, email, Telefone_Contador ) VALUES ('{$nome_empresa}','{$data_fundacao_empresa}','{$Telefone_empresa}','{$Nome_contato}','{$data_aniversario_contato}','{$email}','{$Telefone_Contador}')";
+            $sql = "INSERT INTO cliente (nome_empresa,
+                                        data_fundacao_empresa, 
+                                        Telefone_empresa,Nome_contato, 
+                                        data_aniversario_contato, 
+                                        email, 
+                                        Telefone_Contador ) 
+                                        VALUES ('{$nome_empresa}',
+                                        '{$data_fundacao_empresa}',
+                                        '{$Telefone_empresa}',
+                                        '{$Nome_contato}',
+                                        '{$data_aniversario_contato}',
+                                        '{$email}',
+                                        '{$Telefone_Contador}')";
 
             $res = $conn->query($sql);
 
             if($res==true){
                 print "<script>alert('Cadastrado com sucesso!');</script>";
-                print "<script>location.href='?page=listar';</script>";   
+                print "<script>location.href='dashbord.php';</script>";
             }else{
                 print "<script>alert('Não foi possível cadastrar.');</script>";
-                print "<script>location.href='?page=listar';</script>";   
+                print "<script>location.href='dashbord.php';</script>";       
             }
         break;
-        case "editar":
+        case "editar_cliente":
             $nome_empresa = $_POST["nome_empresa"];
             $data_fundacao_empresa = $_POST["data_fundacao_empresa"];
             $Telefone_empresa = $_POST["Telefone_empresa"];
@@ -45,23 +57,23 @@
 
             if($res==true){
                 print "<script>alert('Editado com sucesso!');</script>";
-                print "<script>location.href='?page=listar';</script>";   
+                print "<script>location.href='?page_cliente=listar_cliente';</script>";   
             }else{
                 print "<script>alert('Não foi possível editar.');</script>";
-                print "<script>location.href='?page=listar';</script>";   
+                print "<script>location.href='?page_cliente=listar_cliente';</script>";   
             }
 
             break;
-        case "excluir":
+        case "excluir_cliente":
             $sql = "DELETE FROM cliente WHERE id=".$_REQUEST["id"];
             $res = $conn->query($sql);
 
             if($res==true){
                 print "<script>alert('Excluido com sucesso!');</script>";
-                print "<script>location.href='?page=listar';</script>";   
+                print "<script>location.href='?page_cliente=listar_cliente';</script>";   
             }else{
                 print "<script>alert('Não foi possível excluir.');</script>";
-                print "<script>location.href='?page=listar';</script>";   
+                print "<script>location.href='?page_cliente=listar_cliente';</script>";   
             }
 
         break;

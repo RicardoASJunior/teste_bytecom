@@ -1,6 +1,6 @@
 <h1>Novo Cliente</h1>
-<form action="?page=salvar" method="POST" >
-    <input type="hidden" name="acao" value="cadastrar">
+<form action="?page_cliente=salvar_cliente" method="POST" >
+    <input type="hidden" name="acao" value="cadastrar_cliente">
     <div class="mb-3">
         <label for="">Nome da Empresa</label>
         <input type="text" name="nome_empresa" class="form-control">

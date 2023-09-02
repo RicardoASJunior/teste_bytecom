@@ -5,8 +5,8 @@
     $row = $res->fetch_object();
 ?>
 
-<form action="?page=salvar" method="POST" >
-    <input type="hidden" name="acao"  value="editar">
+<form action="?page_cliente=salvar_cliente" method="POST" >
+    <input type="hidden" name="acao"  value="editar_cliente">
     <input type="hidden" name="id"  value="<?php print $row->id ?>">
     <div class="mb-3">
         <label for="">Nome da Empresa</label>

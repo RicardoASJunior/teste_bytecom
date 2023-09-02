@@ -4,5 +4,5 @@
     define('PASS', '');
     define('BASE', 'teste_bytecom');
 
-    $conn = new mysqli(HOST,USER,PASS,BASE);
+    $conn = new MYSQLi(HOST,USER,PASS,BASE) or die ('Não foi possível conectar');
     
