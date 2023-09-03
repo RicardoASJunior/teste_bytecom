@@ -1,4 +1,6 @@
 <?php
+    date_default_timezone_set('America/Sao_Paulo');
+
     switch ($_REQUEST["acao"]){
         case "cadastrar_cliente":
             $nome_empresa = $_POST["nome_empresa"];
@@ -8,26 +10,28 @@
             $data_aniversario_contato = $_POST["data_aniversario_contato"];
             $email = $_POST["email"];
             $Telefone_Contador = $_POST["Telefone_Contador"];
+            $data_cadastro = date('y/m/d');
 
             $sql = "INSERT INTO cliente (nome_empresa,
                                         data_fundacao_empresa, 
                                         Telefone_empresa,Nome_contato, 
                                         data_aniversario_contato, 
                                         email, 
-                                        Telefone_Contador ) 
+                                        Telefone_Contador,data_cadastro ) 
                                         VALUES ('{$nome_empresa}',
                                         '{$data_fundacao_empresa}',
                                         '{$Telefone_empresa}',
                                         '{$Nome_contato}',
                                         '{$data_aniversario_contato}',
                                         '{$email}',
-                                        '{$Telefone_Contador}')";
+                                        '{$Telefone_Contador}',
+                                        '{$data_cadastro}')";
 
             $res = $conn->query($sql);
 
             if($res==true){
                 print "<script>alert('Cadastrado com sucesso!');</script>";
-                print "<script>location.href='dashbord.php';</script>";
+                print "<script>location.href='dashboard.php?page_cliente=listar_cliente';</script>";
             }else{
                 print "<script>alert('Não foi possível cadastrar.');</script>";
                 print "<script>location.href='dashbord.php';</script>";       

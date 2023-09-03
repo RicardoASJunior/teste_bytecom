@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+include('../config.php');
     switch ($_REQUEST["acao"]){
         case "cadastrar":
             $nome_empresa = $_POST["nome_empresa"];
@@ -7,28 +7,36 @@ include('config.php');
             $Telefone_empresa = $_POST["Telefone_empresa"];
             $Nome_contador = $_POST["Nome_contador"];
             $data_aniversario_contador = $_POST["data_aniversario_contador"];
+            $CRC = $_POST["CRC"];
             $email = $_POST["email"];
             $Telefone_Contador = $_POST["Telefone_Contador"];
             $senha = $_POST["senha"];
+            $data_cadastro = date('y/m/d');
             $sql = "INSERT INTO contador (nome_empresa,
                                         data_fundacao_empresa, 
                                         Telefone_empresa,
                                         Nome_contador, 
                                         data_aniversario_contador, 
+                                        CRC,
                                         email, 
-                                        Telefone_Contador,senha ) 
+                                        Telefone_Contador,senha,
+                                        data_cadastro ) 
                                         VALUES ('{$nome_empresa}',
                                         '{$data_fundacao_empresa}',
                                         '{$Telefone_empresa}',
                                         '{$Nome_contador}',
                                         '{$data_aniversario_contador}',
-                                        '{$email}','{$Telefone_Contador}'
-                                        ,'{$senha}')";
+                                        '{$CRC}',
+                                        '{$email}','{$Telefone_Contador}',
+                                        '{$senha}',
+                                        '{$data_cadastro}'
+                                        )";
 
             $res = $conn->query($sql);
 
             if($res==true){
-                print "<script>alert('Cadastrado com sucesso!');</script>";    
+                print "<script>alert('Cadastrado com sucesso!');</script>";  
+                print "<script>location.href='../index.php';</script>";  
             }else{
                 print "<script>alert('Não foi possível cadastrar.');</script>";
             }

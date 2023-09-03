@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('config.php');
+include('../config.php');
  
 if(empty($_POST['email']) || empty($_POST['senha'])) {
 	header('Location: index.php');
@@ -18,10 +18,10 @@ $row = mysqli_num_rows($result);
  
 if($row == 1) {
 	$_SESSION['email'] = $email;
-	header('Location: dashboard.php');
+	header('Location: ../dashboard.php');
 	exit();
 } else {
 	$_SESSION['nao_autenticado'] = true;
-	header('Location: index.php');
+	header('Location: ../index.php');
 	exit();
 }

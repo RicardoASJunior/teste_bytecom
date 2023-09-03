@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,8 @@ session_start();
             <div class="mt-5 col-lg-4 offset-lg-4">
                 <div class="card">
                     <div class="card-body ">
-                        <form action="login.php" method="POST">
+                        <h1 class="text-center">LOGIN</h1>
+                        <form action="./login/login.php" method="POST">
                             <?php
                             if(isset($_SESSION['nao_autenticado'])):
                             ?>
@@ -38,7 +40,7 @@ session_start();
                             </div>
                             <div class="mb-3 d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary">Enviar</button>
-                                <button class="btn btn-primary"><a href="cadastro-contador.php" class="text-white">Novo Cadastro</a></button>
+                                <button class="btn btn-primary"><a href="./contador/cadastro-contador.php" class="text-white">Novo Cadastro</a></button>
                             </div>
                         </form>
                     </div>

@@ -1,5 +1,5 @@
 <?php
-    include('verifica-login.php');
+    include('./login/verifica-login.php');
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="" href="logout.php">Sair</a>
+            <a class="nav-link active" aria-current="" href="./login/logout.php">Sair</a>
             </li>
         </ul>
         </div>
@@ -39,35 +39,34 @@
                 include("config.php");
                     switch(@$_REQUEST["page_cliente"]){
                         case "listar_cliente":
-                            include("listar-usuario.php");
+                            include("./cliente/listar-cliente.php");
                         break;
                         case "novo_cliente":
-                             include("cadastro-cliente.php");
+                             include("./cliente/cadastro-cliente.php");
                         break;
                         case "salvar_cliente":
-                            include("salvar-cliente.php");
+                            include("./cliente/salvar-cliente.php");
                         break;
                         case "editar_cliente":
-                            include("editar-cliente.php");
+                            include("./cliente/editar-cliente.php");
                         break;
                         default:
-                            print "Bem Vindo!";
+                            header('location: dashboard.php?page_cliente=listar_cliente');
                     }
-                    // switch(@$_REQUEST["page_contador"]){
-                    //     case "listar_cliente":
-                    //         include("listar-usuario.php");
-                    //     break;
-                    //     case "novo_cliente":
-                    //         include("cadastro-cliente.php");
-                    //     break;
-                    //     case "salvar_cliente":
-                    //         include("salvar-cliente.php");
-                    //     break;
-                    //     case "editar_cliente":
-                    //         include("editar-cliente.php");
-                    //     break;
-                        
-                    // }
+                    switch(@$_REQUEST["page_contador"]){
+                        case "listar_contador":
+                            include("listar-contador.php");
+                        break;
+                        case "novo_contador":
+                            include("cadastro-contador.php");
+                        break;
+                        case "salvar_contador":
+                            include("salvar-contador.php");
+                        break;
+                        case "editar_contador":
+                            include("editar-contador.php");
+                        break; 
+                    }
                 ?>
 
             </div>
