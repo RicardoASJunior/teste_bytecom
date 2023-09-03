@@ -50,14 +50,9 @@ include("../config.php");
                         <input type="tel" id="Telefone_Contador" class="form-control" name="Telefone_Contador" pattern="\([0-9]{2}\)[0-9]{4}(-)?[0-9]{4}" placeholder="(xx)xxxx-xxxx" required />
                     </div>
                     <div class="mb-3">
-                        <label for="">Senha</label>
-                        <input type="password" name="confirmacao_senha" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="">Confirme sua senha</label>
+                        <label for="">Nova Senha</label>
                         <input type="password" name="senha" class="form-control">
                     </div>
-                    
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary mb-3">Enviar</button>
                     </div>

@@ -9,7 +9,6 @@
     if($qtd > 0){
         print "<table class='table table-striped table-bordered table-hover overflow-x-auto '>";
         print "<tr>";
-            print "<th>#</th>";
             print "<th>Empresa</th>";
             print "<th>Fundação da Empresa</th>";
             print "<th>Telefone Empresa</th>";
@@ -20,13 +19,17 @@
             print "<th>Funções</th>";
         print "<tr>";
         while($row = $res->fetch_object()){
+            $data_fundacao_empresa = $row->data_fundacao_empresa;
+            $dataFormatadaEmpresa = date('d/m/y', strtotime($data_fundacao_empresa));
+            
+            $data_aniversario = $row->data_aniversario_contato;
+            $dataFormatadaAniversario = date('d/m/y', strtotime($data_aniversario));
             print "<tr>";
-            print "<td>".$row->id."</td>";
             print "<td>".$row->nome_empresa."</td>";
-            print "<td>".$row->data_fundacao_empresa."</td>";
+            print "<td>".$dataFormatadaEmpresa."</td>";
             print "<td>".$row->Telefone_empresa."</td>";
             print "<td>".$row->Nome_contato."</td>";
-            print "<td>".$row->data_aniversario_contato."</td>";
+            print "<td>".$dataFormatadaAniversario."</td>";
             print "<td>".$row->email."</td>";
             print "<td>".$row->Telefone_Contador."</td>";
             print "<td><button onclick=\"location.href='?page_cliente=editar_cliente&id=".$row->id."'\" class='btn btn-success'>
