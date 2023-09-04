@@ -5,7 +5,7 @@
     $row = $res->fetch_object();
 ?>
 
-<form action="?page_cliente=salvar_cliente" method="POST" >
+<form action="?page_cliente=salvar_cliente" method="POST" enctype="multipart/form-data" >
     <input type="hidden" name="acao"  value="editar_cliente">
     <input type="hidden" name="id"  value="<?php print $row->id ?>">
     <div class="mb-3">
@@ -36,6 +36,10 @@
         <label for="">Telefone do contato</label>
         <input type="tel" id="phone" class="form-control"  name="Telefone_Contador" value="<?php print $row->Telefone_Contador; ?>" pattern="\([0-9]{2}\)[0-9]{4}(-)?[0-9]{4}" placeholder="(xx)xxxx-xxxx" required />
     </div>
+    <div class="mb-3">
+        <label for="">Logo da Empresa</label>
+        <input type="file" class="form-control" name="Logo" value="<?php print $row->Logo; ?> placeholder=".png / .jpg " >
+        </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-primary mb-3">Enviar</button>
     </div>

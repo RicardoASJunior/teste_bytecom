@@ -20,6 +20,8 @@ if($row == 1) {
 	while($row = mysqli_fetch_assoc($result)){
 		if (password_verify($senha, $row['senha'])) {
 			$_SESSION['email'] = $email;
+			$_SESSION['id'] = $row['id'];
+			$_SESSION['senha'] = $senha;
 			header('Location: ../dashboard.php');
 			exit();
 		}else {

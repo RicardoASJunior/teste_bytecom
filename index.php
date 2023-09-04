@@ -39,7 +39,7 @@ session_start();
                                 <input type="password" name="senha" class="form-control">
                             </div>
                             <div class="mb-3 d-flex justify-content-between">
-                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                <button type="submit" class="btn btn-primary">Entrar</button>
                                 <button class="btn btn-primary"><a href="./contador/cadastro-contador.php" class="text-white">Novo Cadastro</a></button>
                             </div>
                         </form>

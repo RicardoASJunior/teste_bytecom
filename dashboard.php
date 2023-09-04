@@ -27,7 +27,7 @@
             <li class="nav-item">
             <a class="nav-link active" aria-current="" href="./login/logout.php">Sair</a>
             </li>
-        </ul>
+        </ul>      
         </div>
     </div>
     </nav>

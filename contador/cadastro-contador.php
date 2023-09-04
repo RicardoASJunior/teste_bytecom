@@ -15,7 +15,7 @@ include("../config.php");
         <div class="row">
             <div class="col mt-5">
                 <h1>Cadastro</h1>
-                <form action="?page_contador=salvar_contador" method="POST" >
+                <form action="?page_contador=salvar_contador" method="POST"  enctype="multipart/form-data">
                     <input type="hidden" name="acao" value="cadastrar">
                     <div class="mb-3">
                         <label for="">Nome da Empresa</label>
@@ -54,9 +54,14 @@ include("../config.php");
                         <input type="password" name="senha" class="form-control">
                     </div>
                     <div class="mb-3">
+                        <label for="">Logo da Empresa</label>
+                        <input type="file" class="form-control" name="Logo" placeholder=".png / .jpg " >
+                    </div>
+                    <div class="mb-3">
                         <button type="submit" class="btn btn-primary mb-3">Enviar</button>
                     </div>
                 </form>
+                <button class="btn btn-danger "><a class="text-white" href="../index.php">Voltar</a></button>
             </div>
         </div>
     </div>
