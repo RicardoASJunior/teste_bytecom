@@ -1,4 +1,4 @@
-<??php
+<?php
 -- Criação do banco de dados "teste_bytecom"
 CREATE DATABASE IF NOT EXISTS teste_bytecom;
 
@@ -35,5 +35,5 @@ CREATE TABLE IF NOT EXISTS cliente (
     senha VARCHAR(100),
     data_cadastro DATE,
     Logo VARCHAR(60)
-);
+?);
 >
