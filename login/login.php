@@ -16,7 +16,7 @@ $result = mysqli_query($conn, $query);
 
 $row = mysqli_num_rows($result);
  
-if($row == 1) {
+if($row  == 1) {
 	while($row = mysqli_fetch_assoc($result)){
 		if (password_verify($senha, $row['senha'])) {
 			$_SESSION['email'] = $email;
