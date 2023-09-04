@@ -2,7 +2,7 @@
 
 <h2>Sobre</h2>
 <p>Este projeto serve para a visualização de clientes de contadores. O Contador poderá efetuar cadastro na aplicação, cadastrar e visualizar seus clientes.<br>
-Cada contador após cadastrado e feito login no sistema, poderá ver apenas seus clientes, também podendo editar os dados do cliente e exclir o cliente caso queira.<br>
+Cada contador após cadastrado e feito login no sistema, poderá ver apenas seus clientes, também podendo editar os dados do cliente e excluir o cliente caso queira.<br>
 </p>
 
 <h2>Pre-Requisitos</h2>
@@ -52,5 +52,5 @@ Cada contador após cadastrado e feito login no sistema, poderá ver apenas seus
     <li>Logon do Contador;</li>
     <li>Adicionar novos Clientes;</li>
     <li>Editar dados dos clientes existentes;</li>
-    <li>Excluir clientes existentes;</li>
+    <li>Excluir clientes existentes.    </li>
 </ul>
